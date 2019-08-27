@@ -50,3 +50,7 @@ workflows:
       - heroku/deploy-via-git
       # Run python safety check
       - python-safety
+      # Start Crashtest Security Suite
+      - dast:
+          requires:
+            - heroku/deploy-via-git
