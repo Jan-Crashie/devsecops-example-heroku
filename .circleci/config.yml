@@ -46,11 +46,11 @@ workflows:
   # Name the workflow "sast-deploy-dast"
   sast-deploy-dast:
     jobs:
-      # Deploy to Heroku
-      - heroku/deploy-via-git
       # Run python safety check
       - python-safety
       # Start Crashtest Security Suite
       - dast:
           requires:
             - heroku/deploy-via-git
+      # Deploy to Heroku
+      - heroku/deploy-via-git
